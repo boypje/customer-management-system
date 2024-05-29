@@ -1,0 +1,100 @@
+* {
+	font-family: arial;
+}
+.row {
+    display: flex;    
+    flex-wrap: wrap;
+    clear: both;
+}
+h3{
+	margin-bottom: .5rem; 	 
+	font-weight: 600;
+    line-height: 1.5;
+    display: block;
+}
+.col-print*{display:block;}
+.col-print-1 {width:8%;  float:left;}
+.col-print-2 {width:16%; float:left;}
+.col-print-3 {width:25%; float:left;}
+.col-print-4 {width:33%; float:left;}
+.col-print-5 {width:42%; float:left;}
+.col-print-6 {width:50%; float:left;}
+.col-print-7 {width:58%; float:left;}
+.col-print-8 {width:66%; float:left;}
+.col-print-9 {width:75%; float:left;}
+.col-print-10{width:83%; float:left;}
+.col-print-11{width:92%; float:left;}
+.col-print-12{width:100%; float:left;}
+.h-10{height: 10px}
+.h-20{height: 20px}
+.h-30{height: 30px}
+.h-40{height: 40px}
+.h-50{height: 50px}
+.h-60{height: 60px}
+.h-70{height: 70px}
+.h-80{height: 80px}
+.h-90{height: 90px}
+.h-100{height: 100px}
+
+.col-print-header{
+	max-height: 20px;
+}
+/*.col-print-th th{
+	outline: thin solid #000;
+	border-collapse: collapse;
+	font-weight: bold;
+}*/
+table{
+	border-collapse: collapse;
+}
+table > tr > td, table > tr > th{
+	padding-left: 5px;
+	vertical-align: top;
+}
+
+
+th.fc-day-header, td.fc-day{
+	width: 100px !important;
+	border: 1px solid #000;	
+    border-spacing: 0;
+    font-size: 11pt;
+}
+
+table > tbody > tr > td.fc-day{height:100px !important;}
+a{color:#000; text-decoration: none;}
+.table-print-border th, .table-print-border td{
+	border: 1px solid #000;	
+    border-spacing: 0;
+    font-size: 11pt;    
+}
+div:has(> div.no-print) {
+	visibility: hidden;
+	display: none;
+}
+div.no-print, .no-print{
+	visibility: hidden;
+	display: none;
+}
+.print-show{
+	visibility: visible;
+	display: inline-block;
+}
+.print-center{
+	text-align: center;
+}
+.clearfix{clear: both;}
+/*#dupak-pengawasan, #dupak-pendidikan{
+	page-break-after: always;
+}
+*/
+.page-break{
+	page-break-after: always !important;
+}
+:last-of-type div.page-break{
+	page-break-after: avoid !important;
+	page-break-before: avoid;
+}
+tr.avoid-after { page-break-inside:avoid; page-break-after:avoid; page-break-before: auto;}
+/*table{
+	page-break-before: always !important;
+}*/
