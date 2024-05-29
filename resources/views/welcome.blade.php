@@ -4,7 +4,7 @@
             
             <!-- konten halaman bedasarkan role yang ada yang ditambahkan -->
           @hasanyrole('Inspektur')
-          <!-- halaman admin  -->
+          <!-- halaman admin ini-->
           <div class="header bg-gradient-primary py-7 py-lg-8 default-color">
             <div class="container">
               <div class="header-body text-center mt-7 mb-7">
