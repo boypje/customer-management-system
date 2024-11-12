@@ -11,7 +11,11 @@
 |
 */
 
+// controller device
+
 Auth::routes();
+
+
 
 Route::group(['middleware' => ['auth','permission:Access admin page']], function (){
 
@@ -32,6 +36,9 @@ Route::group(['middleware' => ['auth','permission:Access admin page']], function
  *
  */
 
+ Route::group(['middleware'=> ['role:Super Admin|HR Staff Senior|HR Manager|Desk Collection|Collection Manager|Admin']], function(){
+    
+});
 
 //starting point new route classification
 Route::group(['prefix'=>'admin', 'namespace' => 'admin'], function () {
@@ -42,6 +49,7 @@ Route::group(['prefix'=>'admin', 'namespace' => 'admin'], function () {
 	// route hr mengelola user
     Route::group(['middleware'=> ['role:Super Admin|HR Staff Senior|HR Manager|Desk Collection|Collection Manager|Admin']], function(){
        // to index hr
+       
         Route::get('hr','HRController@index')->name('hr');
         // getdata user by id aktif/tidak aktif
         Route::get('hr/getDataUserbyStatus/{status}','HRController@getDataUserbyStatus');
@@ -69,6 +77,21 @@ Route::group(['prefix'=>'admin', 'namespace' => 'admin'], function () {
         // lihat data karyawan
         Route::get('hr/view-data-karyawan/{id}','HRController@viewDatakaryawan')->name('viewDataKaryawan');
         route::get('hr/pdf-data-karyawan/{id}','HRController@getViewDataKarayawan')->name('getViewDataKaryawan');
+        Route::resource('devices', 'DeviceController');
+        
+        Route::get('device/scan/{name}', 'DeviceController@scan')->name('devices.scan');
+        Route::put('device/update/{id}', 'DeviceController@update')->name('devices.update');
+        Route::get('device/disconnect/{name}', 'DeviceController@disconnect')->name('devices.disconnect');
+
+        Route::post('device/{name}/update-status', 'DeviceController@updateStatus');
+
+        Route::get('device/history/{id}', 'DeviceController@history')->name('devices.history');
+        Route::get('device/chats/{id}', 'DeviceController@chats')->name('devices.chats');
+        Route::get('/device/{deviceId}/chats/{outboxNumber}', 'DeviceController@showChat')->name('devices.showChat');
+
+
+        Route::resource('outbox', 'OutboxController');
+
 
     });
 
@@ -79,6 +102,8 @@ Route::group(['prefix'=>'admin', 'namespace' => 'admin'], function () {
         Route::post('updateDpd','CustomerController@updateDpd')->name('updateDPD');
         // insert data customer
         Route::post('post-data','CustomerController@create')->name('insertCustomer');
+        // device
+        
         // get data customer
         // Route::get('getdata-customer','CustomerController@getData')->name('getDataCustomer');
         // get tamplate customer

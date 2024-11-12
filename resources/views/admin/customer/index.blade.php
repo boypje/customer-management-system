@@ -6,7 +6,7 @@
 
     <div class="col-md-12 dashboard-bg-color">
     <div class="card">
-        @hasanyrole('Super Admin|Admin|Collection Manager')
+        @hasanyrole('Super Admin|Admin|Collection Manager|Leader DC')
         <nav class="navbar navbar-expand-md">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -32,7 +32,6 @@
         @include('admin.customer.importFormCustomer')
         
         @include('admin.customer.modalUpdateCustomer')
-
         <div class="card-body">
           <div class="tab-content mt-3">
             

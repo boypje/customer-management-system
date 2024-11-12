@@ -31,7 +31,7 @@
             <ul class="navbar-nav mr-auto ml-4 d-md-flex">
 
                 <li class="nav-item dropdown">
-                    @hasanyrole('Super Admin|Desk Collection|Admin|Collection Manager')
+                    @hasanyrole('Super Admin|Desk Collection|Admin|Collection Manager|Leader DC')
                     <a class="nav-link nav-link-icon dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
                         <i class="ikon ni ni-archive-2"></i>
                         <span class="nav-link-inner--text">{{ __('Customers Data') }}</span>
@@ -109,6 +109,16 @@
                     @endhasanyrole
                 </li>
 
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-icon dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                       <i class="fa fa-phone"></i>
+                        <span class="nav-link-inner--text">{{ __('Kirim Pesan') }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <a  class="dropdown-item" href="{{ route('devices.index') }}"><i class="ikon fa fa-mobile"></i><span id="menu_id">{{ __('Perangkat') }}</span></a>
+                        <a  class="dropdown-item" href="{{route('outbox.index')}}"><i class="ikon fas fa-comment"></i><span id="menu_id">{{ __('Pesan') }}</span></a>
+                    </div>
+                </li>
             </ul>
 
 
